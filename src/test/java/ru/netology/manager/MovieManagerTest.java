@@ -94,4 +94,43 @@ public class MovieManagerTest {
         Assertions.assertArrayEquals(expected, actual);
 
     }
+
+    @Test
+    public void shouldOutputAsMuchSpecified() {   // должно вывести столько, сколько указали
+        MovieManager manager = new MovieManager(7);
+
+        manager.addMovie("Бладшот");
+        manager.addMovie("Вперед");
+        manager.addMovie("Отель \"Белград\"");
+        manager.addMovie("Джентльмены");
+        manager.addMovie("Человек- невидимка");
+        manager.addMovie("Тролли. Мировой тур");
+        manager.addMovie("Номер один");
+
+        String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек- невидимка", "Джентльмены",
+                "Отель \"Белград\"", "Вперед", "Бладшот"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldOutputLessThanList() {   // должно вывести столько, сколько указали
+        MovieManager manager = new MovieManager(4);
+
+        manager.addMovie("Бладшот");
+        manager.addMovie("Вперед");
+        manager.addMovie("Отель \"Белград\"");
+        manager.addMovie("Джентльмены");
+        manager.addMovie("Человек- невидимка");
+        manager.addMovie("Тролли. Мировой тур");
+        manager.addMovie("Номер один");
+
+        String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек- невидимка", "Джентльмены"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 }
